@@ -9,7 +9,6 @@ import net.labymod.settings.elements.SettingsElement;
 import net.labymod.utils.Material;
 import net.labymod.utils.ModColor;
 
-import java.awt.*;
 import java.util.List;
 
 public class Settings {
@@ -25,13 +24,10 @@ public class Settings {
         ColorPickerCheckBoxBulkElement roleColor = new ColorPickerCheckBoxBulkElement("Rollen");
         //Traitor
         ColorPicker traitorPicker = new ColorPicker("Traitor", Config.traitorColor,
-                new ColorPicker.DefaultColorCallback() {
-                    @Override
-                    public Color getDefaultColor() {
-                        Config.traitorColor = ModColor.DARK_RED.getColor();
-                        Main.getAddon().getConfig().addProperty("traitorColor", ModColor.DARK_RED.getColor().getRGB());
-                        return ModColor.DARK_RED.getColor();
-                    }
+                () -> { /* Default Color */
+                    Config.traitorColor = ModColor.DARK_RED.getColor();
+                    Main.getAddon().getConfig().addProperty("traitorColor", ModColor.DARK_RED.getColor().getRGB());
+                    return ModColor.DARK_RED.getColor();
                 }, 0, 0, 0, 0);
         traitorPicker.setHasDefault(true);
         traitorPicker.setUpdateListener(traitor -> {
@@ -41,13 +37,10 @@ public class Settings {
         });
         //Detective
         ColorPicker detectivePicker = new ColorPicker("Detective", Config.detectiveColor,
-                new ColorPicker.DefaultColorCallback() {
-                    @Override
-                    public Color getDefaultColor() {
-                        Config.detectiveColor = ModColor.BLUE.getColor();
-                        Main.getAddon().getConfig().addProperty("detectiveColor", ModColor.BLUE.getColor().getRGB());
-                        return ModColor.BLUE.getColor();
-                    }
+                () -> {  /* Default Color */
+                    Config.detectiveColor = ModColor.BLUE.getColor();
+                    Main.getAddon().getConfig().addProperty("detectiveColor", ModColor.BLUE.getColor().getRGB());
+                    return ModColor.BLUE.getColor();
                 }, 0, 0, 0, 0);
         detectivePicker.setHasDefault(true);
         detectivePicker.setUpdateListener(detective -> {
@@ -57,13 +50,10 @@ public class Settings {
         });
         //Innocent
         ColorPicker innocentPicker = new ColorPicker("Innocent", Config.innocentColor,
-                new ColorPicker.DefaultColorCallback() {
-                    @Override
-                    public Color getDefaultColor() {
-                        Config.innocentColor = ModColor.GREEN.getColor();
-                        Main.getAddon().getConfig().addProperty("innocentColor", ModColor.GREEN.getColor().getRGB());
-                        return ModColor.GREEN.getColor();
-                    }
+                () -> {  /* Default Color */
+                    Config.innocentColor = ModColor.GREEN.getColor();
+                    Main.getAddon().getConfig().addProperty("innocentColor", ModColor.GREEN.getColor().getRGB());
+                    return ModColor.GREEN.getColor();
                 }, 0, 0, 0, 0);
         innocentPicker.setHasDefault(true);
         innocentPicker.setUpdateListener(innocent -> {
@@ -76,13 +66,10 @@ public class Settings {
         ColorPickerCheckBoxBulkElement chestplateColor = new ColorPickerCheckBoxBulkElement("Chestplates");
         //Innocent chestplate
         ColorPicker innocentChestPicker = new ColorPicker("Innocent chestplate", Config.innocentChestplateColor,
-                new ColorPicker.DefaultColorCallback() {
-                    @Override
-                    public Color getDefaultColor() {
-                        Config.innocentChestplateColor = ModColor.DARK_GRAY.getColor();
-                        Main.getAddon().getConfig().addProperty("innocentChestplateColor", ModColor.DARK_GRAY.getColor().getRGB());
-                        return ModColor.DARK_GRAY.getColor();
-                    }
+                () -> {  /* Default Color */
+                    Config.innocentChestplateColor = ModColor.DARK_GRAY.getColor();
+                    Main.getAddon().getConfig().addProperty("innocentChestplateColor", ModColor.DARK_GRAY.getColor().getRGB());
+                    return ModColor.DARK_GRAY.getColor();
                 }, 0, 0, 0, 0);
         innocentChestPicker.setHasDefault(true);
         innocentChestPicker.setHasAdvanced(true);

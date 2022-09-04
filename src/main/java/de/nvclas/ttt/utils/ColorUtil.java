@@ -30,10 +30,21 @@ public class ColorUtil {
         colorMap.put(TextFormatting.WHITE, new ColorSet<>(255, 255, 255));
     }
 
+    public static TextFormatting fromColor(Color c) {
+        TreeMap<Integer, TextFormatting> closest = new TreeMap<>();
+        colorMap.forEach((color, set) -> {
+            int red = Math.abs(c.getRed() - set.getRed());
+            int green = Math.abs(c.getGreen() - set.getGreen());
+            int blue = Math.abs(c.getBlue() - set.getBlue());
+            closest.put(red + green + blue, color);
+        });
+        return closest.firstEntry().getValue();
+    }
+
     private static class ColorSet<R, G, B> {
-        R red;
-        G green;
-        B blue;
+        final R red;
+        final G green;
+        final B blue;
 
         ColorSet(R red, G green, B blue) {
             this.red = red;
@@ -53,17 +64,6 @@ public class ColorUtil {
             return blue;
         }
 
-    }
-
-    public static TextFormatting fromColor(Color c) {
-        TreeMap<Integer, TextFormatting> closest = new TreeMap<>();
-        colorMap.forEach((color, set) -> {
-            int red = Math.abs(c.getRed() - set.getRed());
-            int green = Math.abs(c.getGreen() - set.getGreen());
-            int blue = Math.abs(c.getBlue() - set.getBlue());
-            closest.put(red + green + blue, color);
-        });
-        return closest.firstEntry().getValue();
     }
 
 }

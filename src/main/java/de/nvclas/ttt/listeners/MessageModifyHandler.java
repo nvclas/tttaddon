@@ -68,14 +68,13 @@ public class MessageModifyHandler {
         }
     }
 
-    List<String> deletedMessages = Arrays.asList(
+    final List<String> deletedMessages = Arrays.asList(
             "Finde und eliminiere durch Beobachten alle Traitor",
             "Töte unauffällig alle Innocents und Detectives",
             "Nutze @t, um mit deinen Traitor-Kollegen zu kommunizieren",
             "Nutze @d, um mit deinem Detective-Kollegen zu kommunizieren",
             "Grundloses Töten von Spielern ist verboten",
             "Öffne den Shop mit /shop"
-
     );
 
 }
